@@ -1,0 +1,32 @@
+<?php
+$insert=false;
+
+if(isset($_POST['name']))
+{
+    // Set connection variables
+    $server="localhost";
+    $username="root";
+    $password="";
+
+    // Creating a database connection
+    $con=mysqli_connect($server,$username,$password);
+
+    if(!$con){
+        die("Connection to the Database failed due to".mysqli_connect_error());
+    }
+    // echo "success connecting to the database";
+
+      // Collect post variables
+    $name=$_POST['name'];
+    $age=$_POST['age'];
+    $gender=$_POST['gender'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $about=$_POST['about'];
+
+
+    $sql="INSERT INTO `quiz` (`name`, `age`, `gender`, `email`, `phone`, `about`, `date`) VALUES ('$name', 
+    '$age', '$gender', '$email', '$phone', '$about', current_timestamp());";
+    echo $sql;
+}
+ ?>
